@@ -1,9 +1,11 @@
 # Riloadr for WordPress
-Forked from: <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubalmartin/riloadr</a>
+Forked from: [tubalmartin/riloadr](https://github.com/tubalmartin/riloadr)
 
-A cross-browser jQuery responsive images loader for WordPress (3+)
+Riloadr for WordPress is a cross-browser responsive images loader for WordPress 3.0.0 and up.
 
-The goal of this library is to deliver optimized, contextual image sizes in responsive layouts that utilize dramatically different image sizes at different resolutions in order to improve page load time.
+A cross-browser jQuery responsive images loader for WordPress: The goal of this library is to deliver optimized, 
+contextual image sizes in responsive layouts that utilize dramatically different image sizes at different resolutions 
+in order to improve page load time.
 
 This modification is optimized for use with image sizes defined by WordPress via `add_image_size()`.
 
@@ -15,25 +17,26 @@ This modification is optimized for use with image sizes defined by WordPress via
 4.  [License](#license)
 
 <a name="features"></a>
-
 ## 1. Features
 
 * **jQuery Optimized**: Uses WordPress' built-in jQuery to integrate with Riloadr.
 * **Easy to configure**: Optimize your templates and include the required files and you're done.
 * **Limit application**: The technique will only be applied to images with the class *riloadr*
-* **Mirrors the original**: The rest of the features are equivalent to the ones at <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubalmartin/riloadr</a>
+* **Solid foundation**: The plugin is built with [scribu/wp-scb-framework](https://github.com/scribu/wp-scb-framework)
+* **Mirrors the original**: The rest of the features are equivalent to the ones at [tubalmartin/riloadr](https://github.com/tubalmartin/riloadr)
 
 <a name="howto"></a>
-
 ## 2. How to use
 
-Install the plugin as you normally would.
+1. Upload the `riloadr-for-wordpress` folder to your plugins directory (ie. `/wp-content/plugins/`)
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Set options from the Settings->Riloadr menu
+4. Make sure your stylesheet is set up with 100% width on images (ie. `img {width: 100%;}`)
 
 <a name="compatability"></a>
-
 ## 3. Compatability
 
-This technique is tested to work with WordPress 3.3.1+, but should theoretically be backwards compatible to 3.0.
+This technique is tested to work with WordPress 3.3.2+, but should theoretically be backwards compatible to 3.0.
 
 As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubalmartin/riloadr</a> the following browsers have been tested:
 
@@ -56,9 +59,8 @@ As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubal
 * Opera (Mac and Win)
 
 <a name="license"></a>
-
 ## 4. License
 
 Copyright (c) 2012 Tubal Martin, Ole Vik
 
-Licensed under the [MIT license](https://github.com/OleVik/riloadr-wordpress/blob/master/LICENSE.txt).
+Riloadr for Wordpress is licensed under the [MIT license](https://github.com/OleVik/riloadr-wordpress/blob/master/LICENSE.txt), the plugin itself is licensed as [GPLv2](https://github.com/OleVik/riloadr-wordpress/blob/master/riloadr-for-wordpress/LICENSE.txt).
