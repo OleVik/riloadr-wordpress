@@ -1,0 +1,20 @@
+[submodule "riloadr-for-wordpress-svn"]
+	path = riloadr-for-wordpress-svn
+	owner = /
+	url = http://plugins.svn.wordpress.org/riloadr-for-wordpress
+	revision = 539455
+	branch = trunk
+	fetch = trunk:refs/remotes/svn/trunk
+	branches = branches/*:refs/remotes/svn/branches/*
+	tags = tags/*:refs/remote-tags/svn/tags/*
+	remote = svn
+	type = dir
+[submodule "riloadr-for-wordpress-svn/riloadr-for-wordpress"]
+	path = riloadr-for-wordpress-svn/riloadr-for-wordpress
+	owner = riloadr-for-wordpress-svn
+	url = http://plugins.svn.wordpress.org/riloadr-for-wordpress
+	revision = 539521
+	branch = /
+	fetch = :refs/remotes/git-svn
+	remote = svn
+	type = dir
