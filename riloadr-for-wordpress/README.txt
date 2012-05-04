@@ -47,11 +47,24 @@ As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubal
 * Google Chrome (Mac and Win)
 * Safari (Mac and Win)
 * Opera (Mac and Win)
+
 == Installation ==
 1. Upload the `riloadr-for-wordpress` folder to your plugins directory (ie. `/wp-content/plugins/`)
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Set options from the Settings->Riloadr menu
-4. Make sure your stylesheet is set up with 100% width on images (ie. `img {width: 100%;}`)
+4. Make sure your stylesheet is set up with the following CSS:
+	`img {max-width: 100%;}
+	.lt-ie8 img{-ms-interpolation-mode: bicubic;}
+	.lt-ie7 img{width: 100%;}
+	img.responsive,
+	img.group1,
+	img.mygroup3 {
+		visibility: hidden;
+		min-height: 100px;}
+	.no-js img.responsive,
+	.no-js img.group1,
+	.no-js img.mygroup3 {
+		display: none;}`
 
 == Changelog ==
 Uses Semantic Versioning (http://semver.org/).
