@@ -420,9 +420,17 @@
 		// Added to work within WordPress
 		var imgWidth = img.getAttribute('wdt');
 		var imgHeight = img.getAttribute('hgt');
-		var imgSizeRatio = imgWidth / imgHeight;
+		if (imgWidth >= imgHeight) {
+			var imgSizeRatio = imgHeight / imgWidth;
+		} else if (imgWidth < imgHeight) {
+			var imgSizeRatio = imgWidth / imgHeight;
+		}
 		var relativeHeight = Math.floor(imgSize / imgSizeRatio);
-		
+		console.log(imgSize);
+		console.log(imgSizeRatio);
+		console.log(relativeHeight);
+		console.log(imgWidth);
+		console.log(imgHeight);
 		if (reload) {
 			src += (QUESTION_MARK_REGEX.test(src) ? '&' : '?') + 
 				'riloadrts='+(new Date).getTime();
@@ -586,6 +594,13 @@
 var riloadr = new Riloadr({
 	name: 'riloadr',
 	base: '',
+	onerror: function() {
+		var title = jQuery(this).attr('title');
+		var data_src = jQuery(this).attr('data-src');
+		var src = data_src.replace('{breakpoint-name}', '');
+		jQuery('img[title="'+title+'"]').removeAttr('src');
+		jQuery('img[title="'+title+'"]').attr('src', src);
+	},
 	defer: defer,
 	breakpoints: image_sizes
 });

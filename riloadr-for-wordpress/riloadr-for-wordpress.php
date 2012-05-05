@@ -38,6 +38,25 @@ function riloadr_init() {
 		'defer' => 'none'/*,
 		'templates' => '*'*/
 	));
+	if ( is_admin() ) {
+		require_once( dirname( __FILE__ ) . '/includes/view.php' );
+		new Riloadr_Admin_Page( __FILE__, $options );
+	} else {
+		add_action('init', 'riloadr_public_init');
+		/** 
+		* 
+		* @return public initialization of Riloadr 
+		*/  
+		function riloadr_public_init() {
+			global $_wp_additional_image_sizes;
+			$options = get_option( 'riloadr_settings' );
+			$riloadr = new Riloadr($options);
+			$riloadr->image_sizes();
+			new Riloadr_Scripts($_wp_additional_image_sizes, $options);
+			new Riloadr_Filters($options);
+		}
+	}
+}
 	/** 
 	* Riloadr main class
 	* 
@@ -48,6 +67,8 @@ function riloadr_init() {
 	* @author Ole Vik <public@olevik.me> 
 	* @copyright 2012 Ole Vik
 	* @license http://www.gnu.org/licenses/gpl-2.0.html GNU GPLv2
+	* @package Riloadr
+	* @version 1.1.1
 	*/  
 	class Riloadr {
 		/** 
@@ -97,6 +118,8 @@ function riloadr_init() {
 	* @author Ole Vik <public@olevik.me> 
 	* @copyright 2012 Ole Vik
 	* @license http://www.gnu.org/licenses/gpl-2.0.html GNU GPLv2
+	* @package Riloadr
+	* @version 1.1.1
 	*/  
 	class Riloadr_Scripts extends Riloadr {
 		/** 
@@ -141,6 +164,8 @@ function riloadr_init() {
 	* @author Ole Vik <public@olevik.me> 
 	* @copyright 2012 Ole Vik
 	* @license http://www.gnu.org/licenses/gpl-2.0.html GNU GPLv2
+	* @package Riloadr
+	* @version 1.1.1
 	*/  
 	class Riloadr_Filters extends Riloadr {
 		/** 
@@ -148,7 +173,8 @@ function riloadr_init() {
 		* @return filters into 'wp_head()'
 		*/
 		function __construct($options) {
-			add_filter( 'img_caption_shortcode', array( 'Riloadr_Filters', 'riloadr_caption_shortcode' ), 11, 3 );
+			add_filter('img_caption_shortcode', array( 'Riloadr_Filters', 'riloadr_caption_shortcode'), 11, 3 );
+			add_filter('the_content',  array( 'Riloadr_Filters', 'riloadr_img_replacement' ), 12);
 			if ($this->options['handheldfriendly'] == 1) {
 				add_filter( 'wp_head', array( 'Riloadr_Filters', 'riloadr_meta_handheldfriendly' ), 11 );
 			}
@@ -175,7 +201,7 @@ function riloadr_init() {
 		* @param int $val Default WordPress variable
 		* @param string $attr Default WordPress variable
 		* @param string $content Default WordPress variable
-		* @return images (captions) as html figure elements, with new attributes
+		* @return images (captions) as html5 figure elements
 		*/
 		function riloadr_caption_shortcode($val, $attr, $content = null) {
 			extract(shortcode_atts(array(
@@ -187,39 +213,31 @@ function riloadr_init() {
 			if ( 1 > (int) $width || empty($caption) )
 				return $content;
 			if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
-			$content = preg_replace( '/width/', "wdt", $content );
-			$content = preg_replace( '/height/', "hgt", $content );
-			preg_match_all('/href="(.+?)"/i', $content, $url);
-			$img = preg_replace('/-[0-9]*x[0-9]*\./', '-240x200.', $content);
-			$content = preg_replace('/src\=\"/', 'data-src="', $content);
-			$content = preg_replace('/-[0-9]*x[0-9]*\./', '{breakpoint-name}.', $content);
-			$content = preg_replace('/class\=\"/', 'class="riloadr ', $content);
-			$content = preg_replace('/href="(.+?)"/', $url[0][0], $content);
+			$img = preg_replace('/-[0-9]*x[0-9]*\./', '-150x150.', $content);
+			$content = preg_replace('/-[0-9]*x[0-9]*\./', '.', $content);
 			return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '">' . "\n"
 			. do_shortcode( $content )
 			. '<noscript>' . $img . '</noscript>' . "\n"
 			. '<figcaption class="wp-caption-text">' . $caption . '</figcaption>' . "\n"
 			. '</figure>' . "\n";
 		}
-	}
-	if ( is_admin() ) {
-		require_once( dirname( __FILE__ ) . '/includes/view.php' );
-		new Riloadr_Admin_Page( __FILE__, $options );
-	} else {
-		add_action('init', 'riloadr_public_init');
 		/** 
-		* 
-		* @return public initialization of Riloadr 
-		*/  
-		function riloadr_public_init() {
-			global $_wp_additional_image_sizes;
-			$options = get_option( 'riloadr_settings' );
-			$riloadr = new Riloadr($options);
-			$riloadr->image_sizes();
-			new Riloadr_Scripts($_wp_additional_image_sizes, $options);
-			new Riloadr_Filters($options);
+		* @param string $content Default WordPress variable, see 'the_content()' in WP Codex
+		* @return html with <img> tags replaced for use with Riloadr
+		*/
+		function riloadr_img_replacement($content = '') {
+			$content = preg_replace('/-[0-9]*x[0-9]*\./', '{breakpoint-name}.', $content);
+			preg_match_all('/<\s*img[^>]*src=[\"|\'](.*?)[\"|\'][^>]*\/*>/i', $content, $matches, PREG_SET_ORDER);
+			foreach ($matches as $image) {
+				$href = str_replace('{breakpoint-name}', '', $image[1]);
+				$content = str_replace('href="'.$image[1].'"', 'href="'.$href.'"', $content);
+			}
+			$content = preg_replace( '/width/', "wdt", $content );
+			$content = preg_replace( '/height/', "hgt", $content );
+			$content = preg_replace('/src\=\"/', 'data-src="', $content);
+			$content = preg_replace('/class\=\"/', 'class="riloadr ', $content);
+			return $content;
 		}
 	}
-}
 scb_init( 'riloadr_init' );
 ?>

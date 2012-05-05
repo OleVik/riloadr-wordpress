@@ -99,17 +99,15 @@ class Riloadr_Admin_Page extends scbAdminPage {
 
 	function page_footer() {
 		parent::page_footer();
-
-			// Reset all forms
 	?>
-			<script type="text/javascript">
-			(function() {
-				var forms = document.getElementsByTagName('form');
-				for (var i = 0; i < forms.length; i++) {
-					forms[i].reset();
-				}
-			}());
-			</script>
+	<script type="text/javascript">
+		(function() {
+			var forms = document.getElementsByTagName('form');
+			for (var i = 0; i < forms.length; i++) {
+				forms[i].reset();
+			}
+		}());
+	</script>
 	<?php
 	}
 }

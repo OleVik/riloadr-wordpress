@@ -4,16 +4,16 @@ Donate link: http://www.charitywater.org/donate/
 Tags: images, responsive, riloadr
 Requires at least: 3.0.0
 Tested up to: 3.3.2
-Stable tag: 1.2.0
+Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Riloadr for WordPress is a cross-browser responsive images loader for WordPress 3.0.0 and up.
 
 == Description ==
-Forked from: <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubalmartin/riloadr</a>
+Based on <a href="https://github.com/tubalmartin/riloadr">Riloadr</a>.
 
-A cross-browser jQuery responsive images loader for WordPress (3+): The goal of this library is to deliver optimized, 
+A cross-browser jQuery responsive images loader for WordPress: The goal of this library is to deliver optimized, 
 contextual image sizes in responsive layouts that utilize dramatically different image sizes at different resolutions 
 in order to improve page load time.
 
@@ -31,7 +31,6 @@ This technique is tested to work with WordPress 3.3.2+, but should theoretically
 As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubalmartin/riloadr</a> the following browsers have been tested:
 
 **Mobile browsers**
-
 * Webkit mobile (iOS and Android)
 * Opera Mini (iOS and Android). Yes, it sounds incredible!!
 * Opera Mobile (iOS and Android)
@@ -41,7 +40,6 @@ As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubal
 * UC Browser 8+ (Android)
 
 **Desktop browsers**
-
 * Internet Explorer 6+
 * Firefox (Mac and Win)
 * Google Chrome (Mac and Win)
@@ -55,19 +53,16 @@ As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubal
 4. Make sure your stylesheet is set up with the following CSS:
 	`img {max-width: 100%;}
 	.lt-ie8 img{-ms-interpolation-mode: bicubic;}
-	.lt-ie7 img{width: 100%;}
-	img.responsive,
-	img.group1,
-	img.mygroup3 {
-		visibility: hidden;
-		min-height: 100px;}
-	.no-js img.responsive,
-	.no-js img.group1,
-	.no-js img.mygroup3 {
-		display: none;}`
+	.lt-ie7 img{width: 100%;}`
 
 == Changelog ==
 Uses Semantic Versioning (http://semver.org/).
+= 1.1.1 =
+* Bug Fix Release:
+* Riloadr is now applied to images outside of captions.
+* Horizontal and Vertical images should now both have Riloadr applied.
+* Added fallback to original size image, when all else fails.
+
 = 1.1.0 =
 * Public Beta
 

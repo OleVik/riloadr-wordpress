@@ -1,6 +1,4 @@
 # Riloadr for WordPress
-Forked from: [tubalmartin/riloadr](https://github.com/tubalmartin/riloadr)
-
 Riloadr for WordPress is a cross-browser responsive images loader for WordPress 3.0.0 and up.
 
 A cross-browser jQuery responsive images loader for WordPress: The goal of this library is to deliver optimized, 
@@ -34,16 +32,7 @@ This modification is optimized for use with image sizes defined by WordPress via
 4. Make sure your stylesheet is set up with the following CSS:
 	<code><pre>img {max-width: 100%;}
 	.lt-ie8 img{-ms-interpolation-mode: bicubic;}
-	.lt-ie7 img{width: 100%;}
-	img.responsive,
-	img.group1,
-	img.mygroup3 {
-		visibility: hidden;
-		min-height: 100px;}
-	.no-js img.responsive,
-	.no-js img.group1,
-	.no-js img.mygroup3 {
-		display: none;}</pre></code>
+	.lt-ie7 img{width: 100%;}</pre></code>
 
 <a name="compatability"></a>
 ## 3. Compatability
