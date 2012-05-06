@@ -4,7 +4,7 @@ Donate link: http://www.charitywater.org/donate/
 Tags: images, responsive, riloadr
 Requires at least: 3.0.0
 Tested up to: 3.3.2
-Stable tag: trunk
+Stable tag: 1.1.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,7 @@ This technique is tested to work with WordPress 3.3.2+, but should theoretically
 As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubalmartin/riloadr</a> the following browsers have been tested:
 
 **Mobile browsers**
+
 * Webkit mobile (iOS and Android)
 * Opera Mini (iOS and Android). Yes, it sounds incredible!!
 * Opera Mobile (iOS and Android)
@@ -40,6 +41,7 @@ As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubal
 * UC Browser 8+ (Android)
 
 **Desktop browsers**
+
 * Internet Explorer 6+
 * Firefox (Mac and Win)
 * Google Chrome (Mac and Win)
@@ -51,9 +53,12 @@ As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubal
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Set options from the Settings->Riloadr menu
 4. Make sure your stylesheet is set up with the following CSS:
-	`img {max-width: 100%;}
-	.lt-ie8 img{-ms-interpolation-mode: bicubic;}
-	.lt-ie7 img{width: 100%;}`
+
+    ` img {max-width: 100%;}`
+
+    `.lt-ie8 img{-ms-interpolation-mode: bicubic;}`
+
+    `.lt-ie7 img{width: 100%;}`
 
 == Changelog ==
 Uses Semantic Versioning (http://semver.org/).

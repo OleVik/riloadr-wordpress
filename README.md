@@ -12,7 +12,8 @@ This modification is optimized for use with image sizes defined by WordPress via
 1.  [Features](#features)
 2.  [How to use](#howto)
 3.  [Compatability](#compatability)
-4.  [License](#license)
+4.  [Changelog](#changelog)
+5.  [License](#license)
 
 <a name="features"></a>
 ## 1. Features
@@ -39,7 +40,7 @@ This modification is optimized for use with image sizes defined by WordPress via
 
 This technique is tested to work with WordPress 3.3.2+, but should theoretically be backwards compatible to 3.0.
 
-As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubalmartin/riloadr</a> the following browsers have been tested:
+As per [tubalmartin/riloadr](https://github.com/tubalmartin/riloadr) the following browsers have been tested:
 
 **Mobile browsers**
 
@@ -59,8 +60,28 @@ As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubal
 * Safari (Mac and Win)
 * Opera (Mac and Win)
 
+<a name="changelog"></a>
+## 4. Changelog
+
+Mirrors the [changelog at WordPress.org](http://wordpress.org/extend/plugins/riloadr-for-wordpress/changelog/). Uses [Semantic Versioning](http://semver.org/).
+
+### 1.1.1
+###### Bug Fix Release:
+* Riloadr is now applied to images outside of captions.
+* Horizontal and Vertical images should now both have Riloadr applied.
+* Added fallback to original size image, when all else fails.
+
+### 1.1.0
+* Public Beta
+
+### 1.0.0
+* Private Beta
+
+### Pre 1.0.0
+* Private Development
+
 <a name="license"></a>
-## 4. License
+## 5. License
 
 Copyright (c) 2012 Tubal Martin, Ole Vik
 

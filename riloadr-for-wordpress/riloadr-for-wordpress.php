@@ -4,7 +4,7 @@
  Plugin URI: http://olevik.me/
  Description: Your well written plugin description.
  Author: Ole Vik
- Version: 1.1.0
+ Version: 1.1.1
  Author URI: http://olevik.me/
  */
 
