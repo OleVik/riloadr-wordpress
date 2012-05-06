@@ -65,6 +65,12 @@ As per [tubalmartin/riloadr](https://github.com/tubalmartin/riloadr) the followi
 
 Mirrors the [changelog at WordPress.org](http://wordpress.org/extend/plugins/riloadr-for-wordpress/changelog/). Uses [Semantic Versioning](http://semver.org/).
 
+### 1.1.2
+###### Bug Fix Release:
+* Core script updated to Riloadr version 1.1.0.
+* Simplified sizing method.
+* Horizontal and Vertical images should now both have Riloadr applied, **irrespective of captions**.
+
 ### 1.1.1
 ###### Bug Fix Release:
 * Riloadr is now applied to images outside of captions.

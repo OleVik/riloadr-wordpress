@@ -4,7 +4,7 @@ Donate link: http://www.charitywater.org/donate/
 Tags: images, responsive, riloadr
 Requires at least: 3.0.0
 Tested up to: 3.3.2
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,7 +28,7 @@ This modification is optimized for use with image sizes defined by WordPress via
 = Compatability =
 This technique is tested to work with WordPress 3.3.2+, but should theoretically be backwards compatible to 3.0.
 
-As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubalmartin/riloadr</a> the following browsers have been tested:
+As per [tubalmartin/riloadr](https://github.com/tubalmartin/riloadr) the following browsers have been tested:
 
 **Mobile browsers**
 
@@ -54,14 +54,21 @@ As per <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubal
 3. Set options from the Settings->Riloadr menu
 4. Make sure your stylesheet is set up with the following CSS:
 
-    ` img {max-width: 100%;}`
 
-    `.lt-ie8 img{-ms-interpolation-mode: bicubic;}`
-
-    `.lt-ie7 img{width: 100%;}`
+	`img {max-width: 100%;}`
+	
+	`.lt-ie8 img{-ms-interpolation-mode: bicubic;}`
+	
+	`.lt-ie7 img{width: 100%;}`
 
 == Changelog ==
 Uses Semantic Versioning (http://semver.org/).
+= 1.1.2 =
+* Bug Fix Release:
+* Core script updated to Riloadr version 1.1.0.
+* Simplified sizing method.
+* Horizontal and Vertical images should now both have Riloadr applied, **irrespective of captions**.
+
 = 1.1.1 =
 * Bug Fix Release:
 * Riloadr is now applied to images outside of captions.

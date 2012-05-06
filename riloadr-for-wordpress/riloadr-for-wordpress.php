@@ -4,7 +4,7 @@
  Plugin URI: http://olevik.me/
  Description: Your well written plugin description.
  Author: Ole Vik
- Version: 1.1.1
+ Version: 1.1.2
  Author URI: http://olevik.me/
  */
 
@@ -173,8 +173,8 @@ function riloadr_init() {
 		* @return filters into 'wp_head()'
 		*/
 		function __construct($options) {
-			add_filter('img_caption_shortcode', array( 'Riloadr_Filters', 'riloadr_caption_shortcode'), 11, 3 );
-			add_filter('the_content',  array( 'Riloadr_Filters', 'riloadr_img_replacement' ), 12);
+			add_filter('img_caption_shortcode', array( 'Riloadr_Filters', 'riloadr_caption_shortcode'), 12, 3 );
+			add_filter('the_content',  array( 'Riloadr_Filters', 'riloadr_img_replacement' ), 11);
 			if ($this->options['handheldfriendly'] == 1) {
 				add_filter( 'wp_head', array( 'Riloadr_Filters', 'riloadr_meta_handheldfriendly' ), 11 );
 			}
@@ -214,7 +214,6 @@ function riloadr_init() {
 				return $content;
 			if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
 			$img = preg_replace('/-[0-9]*x[0-9]*\./', '-150x150.', $content);
-			$content = preg_replace('/-[0-9]*x[0-9]*\./', '.', $content);
 			return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '">' . "\n"
 			. do_shortcode( $content )
 			. '<noscript>' . $img . '</noscript>' . "\n"
