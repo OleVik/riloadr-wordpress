@@ -4,7 +4,7 @@ Donate link: http://www.charitywater.org/donate/
 Tags: images, responsive, riloadr
 Requires at least: 3.0.0
 Tested up to: 3.3.2
-Stable tag: 1.1.2
+Stable tag: 1.2.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,7 @@ This modification is optimized for use with image sizes defined by WordPress via
 * **Mirrors the original**: The rest of the features are equivalent to the ones at <a href="https://github.com/tubalmartin/riloadr">https://github.com/tubalmartin/riloadr</a>
 
 = Compatability =
-This technique is tested to work with WordPress 3.3.2+, but should theoretically be backwards compatible to 3.0.
+This technique is tested to work with WordPress 3.3.2+, but should theoretically be backwards compatible to 3.0. Please note that any cache-plugins are likely to interfere with this plugin, and may require debugging.
 
 As per [tubalmartin/riloadr](https://github.com/tubalmartin/riloadr) the following browsers have been tested:
 
@@ -63,6 +63,13 @@ As per [tubalmartin/riloadr](https://github.com/tubalmartin/riloadr) the followi
 
 == Changelog ==
 Uses Semantic Versioning (http://semver.org/).
+= 1.2.0 =
+* Plugin is now considered stable.
+* Core script updated to Riloadr version 1.2.0.
+* Script is now minified by default, see [GitHub/OleVik/riloadr-wordpress](https://github.com/OleVik/riloadr-wordpress) for uncompressed script.
+* Introduces the experimental **ignoreLowBandwidth** feature.
+* Bugfix for the *belowFold* option.
+
 = 1.1.2 =
 * Bug Fix Release:
 * Core script updated to Riloadr version 1.1.0.

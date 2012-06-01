@@ -8,7 +8,7 @@ class Riloadr_Admin_Page extends scbAdminPage {
 
 	function page_content() {
 		echo html( 'p', 'On this page you choose how Riloadr should operate; the default settings should be enough'
-			. ' to get you doing. As this plugin is still in beta, please use'
+			. ' to get you doing. Please use'
 			. ' <a href="https://github.com/OleVik/riloadr-wordpress/issues" alt="GitHub">GitHub</a>'
 			. ' for error reporting and feature requests.' );
 		echo html( 'h2', 'Image Sizes' );
@@ -66,10 +66,11 @@ class Riloadr_Admin_Page extends scbAdminPage {
 		) );
 		echo html( 'h2', 'Image Load' );
 		echo html( 'p', 'Tells Riloadr to defer the load of images; that is, the images will not load'
-			. 'unless necessary. Possible options:'
+			. ' unless necessary. Possible options:'
 			. '<br />None: Do not defer image load.'
 			. '<br />Load: Images will be loaded once the window has fully loaded (window.onload).'
-			. '<br />Below Fold: Images will load when the user is likely to see them (above the fold).' );		
+			. '<br />Below Fold: Images will load when the user is likely to see them (above the fold).'
+			. '<br /><br />ignoreLowBandwidth: Use W3C Network Api to determine HiDPI compatability, IE set to true to force loading of Hi-Res images (<b>Experimental feature</b>).' );		
 		echo $this->form_table( array(
 			array(
 				'title' => 'Defer Images',
@@ -81,8 +82,19 @@ class Riloadr_Admin_Page extends scbAdminPage {
 					'belowfold' => 'Below Fold'
 				),
 				'selected' => 'none'
+			),
+			array(
+				'title' => 'Use ignoreLowBandwidth',
+				'type' => 'radio',
+				'name' => 'ignorelowbandwidth',
+				'value' => array(
+					'true' => 'Yes',
+					'false' => 'No'
+				),
+				'selected' => 'false'
 			)
 		) );
+
 		/*echo html( 'h2', 'Templates' );
 		echo html( 'p', 'Comma-separated list of templates to apply Riloadr to.'
 		. ' Use an asterisk (*) enables it across the site.' );
