@@ -65,6 +65,13 @@ As per [tubalmartin/riloadr](https://github.com/tubalmartin/riloadr) the followi
 
 Mirrors the [changelog at WordPress.org](http://wordpress.org/extend/plugins/riloadr-for-wordpress/changelog/). Uses [Semantic Versioning](http://semver.org/).
 
+### 1.2.0
+* Plugin is now considered stable.
+* Core script updated to Riloadr version 1.2.0.
+* Script is now minified by default, see [GitHub/OleVik/riloadr-wordpress](https://github.com/OleVik/riloadr-wordpress) for uncompressed script.
+* Introduces the experimental **ignoreLowBandwidth** feature.
+* Bugfix for the *belowFold* option.
+
 ### 1.1.2
 ###### Bug Fix Release:
 * Core script updated to Riloadr version 1.1.0.

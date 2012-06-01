@@ -2,9 +2,9 @@
 /*
  Plugin Name: Riloadr for WordPress
  Plugin URI: http://olevik.me/
- Description: Your well written plugin description.
+ Description: Riloadr for WordPress is a cross-browser responsive images loader for WordPress 3.0.0 and up.
  Author: Ole Vik
- Version: 1.1.2
+ Version: 1.2.0
  Author URI: http://olevik.me/
  */
 
@@ -35,8 +35,8 @@ function riloadr_init() {
 		'handheldfriendly' => 1,
 		'mobileoptimized' => 1,
 		'viewport' => 1,
-		'defer' => 'none'/*,
-		'templates' => '*'*/
+		'defer' => 'none',
+		'ignorelowbandwidth' => 'false'
 	));
 	if ( is_admin() ) {
 		require_once( dirname( __FILE__ ) . '/includes/view.php' );
@@ -147,11 +147,12 @@ function riloadr_init() {
 			$this->image_sizes_riloadr = $image_sizes_riloadr;
 			wp_enqueue_script('jquery');
 			wp_register_script('riloadr',
-			plugins_url( '' , __FILE__ ) . '/includes/riloadr.wp.jquery.js',
+			plugins_url( '' , __FILE__ ) . '/includes/riloadr.wp.jquery.min.js',
 				array('jquery'),
-				'1.0.2' );
+				'1.2.0' );
 			wp_enqueue_script('riloadr');
 			wp_localize_script('riloadr', 'defer', $this->options['defer']);
+			wp_localize_script('riloadr', 'ignorelowbandwidth', $this->options['ignorelowbandwidth']);
 			wp_localize_script('riloadr', 'image_sizes', $this->image_sizes_riloadr);
 		}
 	}
