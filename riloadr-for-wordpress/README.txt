@@ -63,6 +63,9 @@ As per [tubalmartin/riloadr](https://github.com/tubalmartin/riloadr) the followi
 
 == Changelog ==
 Uses Semantic Versioning (http://semver.org/).
+= 1.2.1 =
+* Core script updated to Riloadr version 1.3.2.
+
 = 1.2.0 =
 * Plugin is now considered stable.
 * Core script updated to Riloadr version 1.2.0.

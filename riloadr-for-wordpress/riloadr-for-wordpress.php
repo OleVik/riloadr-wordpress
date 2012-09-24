@@ -4,7 +4,7 @@
  Plugin URI: http://olevik.me/
  Description: Riloadr for WordPress is a cross-browser responsive images loader for WordPress 3.0.0 and up.
  Author: Ole Vik
- Version: 1.2.0
+ Version: 1.2.1
  Author URI: http://olevik.me/
  */
 
@@ -119,7 +119,7 @@ function riloadr_init() {
 	* @copyright 2012 Ole Vik
 	* @license http://www.gnu.org/licenses/gpl-2.0.html GNU GPLv2
 	* @package Riloadr
-	* @version 1.1.1
+	* @version 1.2.1
 	*/  
 	class Riloadr_Scripts extends Riloadr {
 		/** 
@@ -149,7 +149,7 @@ function riloadr_init() {
 			wp_register_script('riloadr',
 			plugins_url( '' , __FILE__ ) . '/includes/riloadr.wp.jquery.min.js',
 				array('jquery'),
-				'1.2.0' );
+				'1.2.1' );
 			wp_enqueue_script('riloadr');
 			wp_localize_script('riloadr', 'defer', $this->options['defer']);
 			wp_localize_script('riloadr', 'ignorelowbandwidth', $this->options['ignorelowbandwidth']);
@@ -166,7 +166,7 @@ function riloadr_init() {
 	* @copyright 2012 Ole Vik
 	* @license http://www.gnu.org/licenses/gpl-2.0.html GNU GPLv2
 	* @package Riloadr
-	* @version 1.1.1
+	* @version 1.2.1
 	*/  
 	class Riloadr_Filters extends Riloadr {
 		/** 
